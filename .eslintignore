@@ -1,8 +1,8 @@
-notepad .eslintignore
-```
+# ============================
+# ESLint Ignore File
+# Assignment 13 - UI Garden
+# ============================
 
-Add this content:
-```
 # Dependencies
 node_modules/
 
@@ -14,11 +14,33 @@ storybook-static/
 # Coverage
 coverage/
 
-# Generated files
+# Cache / logs
 *.log
-*.lock
+.eslintcache
 .DS_Store
 
-# Config files that shouldn't be linted
+# Lock files (not code)
+*.lock
+
+# Config files (do not lint)
 *.config.js
+*.config.cjs
 *.config.mjs
+*.config.ts
+
+# GitHub / Husky / CI
+.husky/
+.github/
+
+# Storybook files (exclude from lint)
+stories/**
+**/*.stories.*
+**/*.stories.tsx
+**/*.stories.ts
+**/*.stories.jsx
+**/*.stories.js
+
+# Test files (optional exclude)
+**/*.test.*
+**/*.spec.*
+
