@@ -20,15 +20,16 @@ RUN npm install --legacy-peer-deps --include=dev
 # ⬇ Explicitly ensure react-scripts is present
 RUN npm install react-scripts@latest --save-dev --legacy-peer-deps
 
-# Copy all source code
+# Copy all source code (story files excluded via .dockerignore)
 COPY . .
 
 # Build the production-ready app
 RUN npx react-scripts build
+
 # -----------------------------
 # STAGE 2 – Serve with Nginx
 # -----------------------------
-  
+
 FROM nginx:1.27-alpine
 
 # Copy the React build output directly into nginx's default directory

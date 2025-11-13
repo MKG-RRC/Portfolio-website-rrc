@@ -11,3 +11,14 @@ storybook-static
 .husky
 .github
 .eslintcache
+
+# Exclude Storybook story files
+**/*.stories.tsx
+**/*.stories.ts
+**/*.stories.jsx
+**/*.stories.js
+**/*.stories.*
+
+# Exclude test files
+**/*.test.*
+**/*.spec.*
