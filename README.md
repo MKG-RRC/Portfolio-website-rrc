@@ -1,4 +1,4 @@
-# Assignment 13 - Web Component Library
+# Assignment 14 - Portfolio Website with Component Library
 
 **Student:** Mark Kenneth Garcia
 **Course:** WEBD-3012 (273795) Business Systems Build and Testing
@@ -8,151 +8,142 @@
 
 ## Overview
 
-This assignment extends Assignment 12 (UI Garden Component Library) by adding automated code-quality checks and continuous integration through GitHub Actions.
+This assignment is the final portfolio website for WEBD-3012, showcasing coursework and developer skills throughout the Full-Stack Web Development program at RRC Polytech.
 
-The system now includes:
+The system includes:
 
-🧩 Husky pre-commit hooks that block bad commits (Prettier + ESLint + Tests)
-⚙️ GitHub Actions workflow that re-runs the same checks for each push or PR
-🐳 Docker multi-stage build that serves the production React app on localhost:8018 via Nginx
+🧩 Custom React component library built with Storybook
+⚙️ GitHub Actions CI/CD pipeline for automated quality checks
+🐳 Docker multi-stage build serving production app on localhost:5575 via Nginx
+🎨 Component-driven development with reusable UI elements
+📱 Multi-page portfolio with smooth navigation
 
 ---
 
 ## Technologies Used
 
-Frontend & Frameworks
+### Frontend & Frameworks
 
 - React (Create React App) + TypeScript
-- Storybook – component showcase and visual testing
-- Styled Components – CSS-in-JS styling
+- Storybook v10 – component showcase and design system
+- CSS Modules – modular styling
+- React Router – navigation and hash scrolling
 
-Code Quality & Automation
+### Code Quality & Automation
 
 - ESLint – JavaScript/TypeScript linting
 - Prettier – code formatting enforcement
-- Husky – Git pre-commit hooks
-- lint-staged – runs checks only on staged files
-- Jest / React Testing Library – unit tests
 - GitHub Actions – CI/CD pipeline for build and quality checks
+- Husky (optional) – Git pre-commit hooks
 
-Build & Deployment
+### Build & Deployment
 
-- Node.js 20 (Alpine) – builder environment
-- Nginx 1.27 (Alpine) – production web server
+- Node.js 20 – builder environment
+- Nginx 1.27 – production web server
 - Docker Desktop – containerization and deployment
-- Windows PowerShell – local development shell
-
-###
 
 ---
 
 ## Project Structure
 
 ```
-ui-garden/
-├── .husky/                     # Husky pre-commit hook
-├── .github/workflows/ci.yml    # GitHub Actions workflow
-├── src/components/             # Reusable React components
-├── build/                      # Production build output
-├── Dockerfile                  # Multi-stage Docker setup (A13)
-├── package.json                # Scripts + Husky integration
-└── README.md                   # Setup & instructions
-
+src/
+├── components/
+│   ├── Navbar/
+│   ├── Footer/
+│   └── UI/
+│       ├── Button/
+│       ├── Typography/
+│       ├── Card/
+│       └── ContactForm/
+│
+├── pages/
+│   ├── Home/
+│   ├── Work/
+│   ├── Skills/
+│   ├── Resources/
+│   ├── DeveloperSetup/
+│   └── Contact/
+│
+├── App.tsx
+├── ScrollToHash.tsx
+└── index.tsx
 ```
-
-### 🦴 Husky Pre-Commit Checks
-
-### Every commit runs these commands automatically:
-
-```
-npm run prettier:check   # Verify code formatting
-npm run lint             # Lint for errors
-npm test                 # Run unit tests
-
-If any fail → commit is blocked until fixed.
-```
-
-### ⚙️ Setup Commands
-
-- `npm install husky lint-staged prettier eslint --save-dev --legacy-peer-deps`
-- `npx husky init`
-
-### In .husky/pre-commit:
-
-- `npm run prettier:check && npm run lint && npm test`
 
 ---
 
+## Local Development
+
+### 1️⃣ Install Dependencies
+
+```bash
+npm install
+```
+
+### 2️⃣ Start Development Server
+
+```bash
+npm start
+```
+
+Access at: [http://localhost:3000](http://localhost:3000)
+
 ---
 
-### package.json script snippet:
+## Storybook UI Library
 
-```
-"lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-"prettier:check": "prettier --check .",
-"prettier:fix": "prettier --write .",
-"precommit-checks": "npm run prettier:check && npm run lint && npm test"
-```
+### 1️⃣ Start Storybook
 
-### GitHub Actions (CI/CD)
-
-Workflow file: .github/workflows/ci.yml
-
-```name: Code Quality CI
-
-on:
-  push:
-  pull_request:
-
-jobs:
-  build-and-test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - run: npm ci --legacy-peer-deps
-      - run: npm run lint
-      - run: npm run prettier:check
-      - run: npm test
+```bash
+npm run storybook
 ```
 
-If any step fails, the build shows ❌ on GitHub.
+### 2️⃣ Access Storybook
+
+Open in browser: [http://localhost:6006](http://localhost:6006)
+
+### 3️⃣ Available Components
+
+- Button – Primary, Secondary, Tertiary variants
+- Typography – Headings, body text, labels
+- Card – Project cards with image, title, description
+- ContactForm – Full contact form with validation
+- Additional reusable UI components
+
+---
 
 ## Docker Setup
 
-### 1️ Build the Image
+### 1️⃣ Build the Docker Image
 
 ```bash
-docker build -t garcia_markkenneth_coding_assignment13 .
+docker build -t Garcia_Mark_coding_assignment14 .
 ```
 
-### 2️ Run the Container
+### 2️⃣ Run the Container
 
 ```bash
-docker run -d --name garcia_markkenneth_coding_assignment13 -p 8018:8018 garcia_markkenneth_coding_assignment13
+docker run -d --name Garcia_Mark_coding_assignment14 -p 5575:80 Garcia_Mark_coding_assignment14
 ```
 
 **Flags:**
 
-- `--rm` – Removes the container after stopping
-- `-d` – Runs the container in background
-- `-p` – Maps container port 8018 to localhost
-- `--name` – Set container name as required
+- `-d` – Runs container in background
+- `-p` – Maps container port 80 to localhost:5575
+- `--name` – Sets container name as required
 
 ---
 
-### 3️ View the App
+### 3️⃣ View the App
 
 Open in browser:
-[http://127.0.0.1:8018](http://127.0.0.1:8018)
+[http://127.0.0.1:5575](http://127.0.0.1:5575)
 or
-[http://localhost:8018](http://localhost:8018)
+[http://localhost:5575](http://localhost:5575)
 
 ---
 
-### 4️ Verify and Stop
+### 4️⃣ Verify and Stop
 
 Check active containers:
 
@@ -163,33 +154,87 @@ docker ps
 Stop the container:
 
 ```bash
-docker stop garcia_markkenneth_coding_assignment13
+docker stop Garcia_Mark_coding_assignment14
 ```
 
 ---
 
-## Storybook Setup
+## CI/CD Pipeline
 
-### 1️ Start Storybook
+### GitHub Actions Workflow
 
-```bash
-npm run storybook
-```
+**File:** `.github/workflows/ci.yml`
 
-### 2️ Access Storybook
+**CI tasks include:**
 
-Open in browser:
-[http://localhost:6006](http://localhost:6006)
+- Install Node dependencies
+- ESLint code quality checks
+- Prettier formatting verification
+- Storybook build validation
+- Production React build test
+- Test runner execution (if applicable)
 
-### 3️ Available Components
+**Workflow triggers:**
 
-Each component (Button, Label, Text, etc.) includes:
+- On every push to repository
+- On pull request creation
 
-- A `.tsx` implementation file
-- A `.stories.tsx` file for Storybook display
-- A `.types.ts` for prop types
-- A `.test.tsx` for visibility and disabled-state tests
-- An `index.ts` for exports
+If any step fails, the build shows ❌ on GitHub.
+
+---
+
+## Portfolio Sections
+
+### 🏠 Home
+
+Hero banner with introduction, tagline, and call-to-action.
+
+### 💼 Work
+
+Project showcase featuring:
+
+- Project title and description
+- Featured image
+- Live demo link
+- GitHub repository link
+- Technology stack list
+
+### 🛠 Skills
+
+Organized by category:
+
+- Languages & Frameworks (JavaScript, TypeScript, React, Ruby, Python)
+- Tools (Git, Docker, VS Code, Figma)
+- DevOps & CI/CD (GitHub Actions, Docker, Nginx)
+- Deployment Technologies (Render, Netlify, Heroku)
+
+### 📚 Resources
+
+Curated links to:
+
+- Official documentation
+- Development tools
+- Technical articles
+- Learning resources
+
+### 💻 Developer Setup
+
+Development environment breakdown:
+
+- VS Code configuration
+- Terminal setup (PowerShell/Bash)
+- Essential extensions
+- Preferred fonts and themes
+- System tools and utilities
+
+### 📨 Contact
+
+Contact page featuring:
+
+- Storybook-built ContactForm component
+- LinkedIn profile link
+- GitHub profile link
+- Email contact (optional)
 
 ---
 
@@ -197,29 +242,39 @@ Each component (Button, Label, Text, etc.) includes:
 
 **Stage 1 – Node (Builder):**
 
-- Installs dependencies (--legacy-peer-deps --include=dev)
-- Builds optimized React app using react-scripts build
+- Installs dependencies
+- Builds optimized production React app using `react-scripts build`
 
 **Stage 2 – Nginx (Runtime):**
 
-- Copies the build/ output to /usr/share/nginx/html
-- Serves on port 8018 with SPA routing
-- Uses try_files $uri $uri/ /index.html;
+- Copies `build/` output to `/usr/share/nginx/html`
+- Serves on port 80 (mapped to 5575)
+- Configured for SPA routing with `try_files`
 
 ---
 
-## Verification
-
-```Checklist
-
- Husky runs Prettier + ESLint + Tests before commit
-
- GitHub Actions pipeline runs same checks on push
-
- Docker container serves production build at localhost:8018
-
- All assignment requirements met
+## Verification Checklist
 
 ```
+✅ Component library built with Storybook
+✅ GitHub Actions CI/CD pipeline configured
+✅ Docker container serves production build at localhost:5575
+✅ All portfolio sections implemented
+✅ Navigation and routing functional
+✅ Contact form integrated from Storybook
+✅ Responsive design implemented
+✅ All assignment requirements met
+```
 
-End of README – Assignment 13 (UI Component Library Build Checks)
+---
+
+## Author
+
+**Mark Kenneth Garcia**
+Full Stack Web Development – RRC Polytech
+GitHub: [https://github.com/MKG-RRC](https://github.com/MKG-RRC)
+LinkedIn: [https://www.linkedin.com/in/mark-kenneth-garcia](https://www.linkedin.com/in/mark-kenneth-garcia)
+
+---
+
+End of README – Assignment 14 (Portfolio Website with Component Library)

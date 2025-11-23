@@ -1,0 +1,87 @@
+.ui-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.4rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  user-select: none;
+
+  /* Remove default button styles */
+  border: none;
+  outline: none;
+  background: transparent;
+
+  /* Smooth animations */
+  transform: translateY(0);
+}
+
+/* ============================
+   PRIMARY BUTTON
+=============================== */
+.ui-btn.primary {
+  background: linear-gradient(135deg, #4d9fff, #2b75d9);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(77, 159, 255, 0.35);
+}
+
+.ui-btn.primary:hover {
+  background: linear-gradient(135deg, #2b75d9, #1a5bb8);
+  box-shadow: 0 6px 20px rgba(43, 117, 217, 0.5);
+  transform: translateY(-2px);
+}
+
+.ui-btn.primary:active {
+  transform: translateY(0px) scale(0.98);
+  box-shadow: 0 3px 10px rgba(43, 117, 217, 0.4);
+}
+
+/* ============================
+   SECONDARY BUTTON
+=============================== */
+.ui-btn.secondary {
+  background: #333;
+  color: #e8e8e8;
+  border: 1px solid #444;
+}
+
+.ui-btn.secondary:hover {
+  background: #444;
+  border-color: #666;
+  transform: translateY(-2px);
+}
+
+.ui-btn.secondary:active {
+  transform: translateY(0px) scale(0.97);
+}
+
+/* ============================
+   OUTLINE BUTTON
+=============================== */
+.ui-btn.outline {
+  background: transparent;
+  border: 2px solid #4d9fff;
+  color: #4d9fff;
+}
+
+.ui-btn.outline:hover {
+  background: #4d9fff;
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(77, 159, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.ui-btn.outline:active {
+  transform: translateY(0px) scale(0.97);
+}
+
+/* ============================
+   FOCUS RING (ACCESSIBILITY)
+=============================== */
+.ui-btn:focus-visible {
+  outline: 3px solid rgba(77, 159, 255, 0.45);
+  outline-offset: 2px;
+}

@@ -12,6 +12,7 @@
     "@types/react-dom": "^19.2.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "react-router-dom": "^7.9.6",
     "react-scripts": "^5.0.1",
     "styled-components": "^6.1.19",
     "web-vitals": "^4.2.4"
@@ -21,21 +22,20 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
     "prepare": "husky",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "prettier:check": "prettier --check .",
-    "prettier:fix": "prettier --write ."
+    "prettier:fix": "prettier --write .",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest",
-      "plugin:storybook/recommended"
+      "react-app/jest"
     ]
   },
   "browserslist": {
@@ -51,16 +51,11 @@
     ]
   },
   "devDependencies": {
-    "@storybook/addon-essentials": "^8.6.14",
-    "@storybook/addon-interactions": "^8.6.14",
-    "@storybook/addon-links": "^10.0.4",
-    "@storybook/blocks": "^8.6.14",
-    "@storybook/preset-create-react-app": "^10.0.4",
-    "@storybook/react": "^10.0.4",
-    "@storybook/react-webpack5": "^10.0.4",
-    "@storybook/test": "^8.6.14",
-    "@svgr/webpack": "^8.1.0",
+    "@storybook/addon-docs": "^10.0.8",
+    "@storybook/preset-create-react-app": "^10.0.8",
+    "@storybook/react-webpack5": "^10.0.8",
     "@types/node": "^20.19.24",
+    "@types/react-router-dom": "^5.3.3",
     "@types/styled-components": "^5.1.34",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
@@ -74,7 +69,7 @@
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^4.6.2",
-    "eslint-plugin-storybook": "^10.0.4",
+    "eslint-plugin-storybook": "^10.0.8",
     "file-loader": "^6.2.0",
     "happy-dom": "^20.0.10",
     "husky": "^9.1.7",
@@ -82,9 +77,9 @@
     "lint-staged": "^16.2.6",
     "prettier": "^3.6.2",
     "prop-types": "^15.8.1",
-    "storybook": "^10.0.4",
+    "storybook": "^10.0.8",
     "ts-loader": "^9.5.4",
-    "typescript": "^5.1.6",
+    "typescript": "^4.9.5",
     "vitest": "^4.0.6",
     "webpack": "^5.102.1"
   },
