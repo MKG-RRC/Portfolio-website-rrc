@@ -1,10 +1,12 @@
 import React from "react";
-
 import { Navbar } from "../../components/Navbar/Navbar";
 import "./Home.css";
 import { Button } from "../../components/UI/Button/Button";
+import { useRevealOnScroll } from "../../useRevealOnScroll";
 
 export const Home: React.FC = () => {
+  useRevealOnScroll();
+
   return (
     <>
       <Navbar />
@@ -32,7 +34,7 @@ export const Home: React.FC = () => {
         <h3>Welcome to my portfolio</h3>
         <p>
           This website showcases the projects, skills, tools, resources, and
-          developer setup I’ve built throughout the Full Stack Web Development
+          developer setup I've built throughout the Full Stack Web Development
           program.
         </p>
       </section>

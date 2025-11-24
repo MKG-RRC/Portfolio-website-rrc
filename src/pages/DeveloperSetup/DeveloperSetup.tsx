@@ -1,9 +1,11 @@
 import React from "react";
-
 import "./Developer.css";
 import { Typography } from "../../components/UI/Typography/Typography";
+import { useRevealOnScroll } from "../../useRevealOnScroll";
 
 export const DeveloperSetup = () => {
+  useRevealOnScroll();
+
   return (
     <section className="dev-section" id="developer">
       <Typography variant="h2">Developer Setup</Typography>

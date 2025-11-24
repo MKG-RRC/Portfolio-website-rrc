@@ -1,9 +1,11 @@
 import React from "react";
-
 import { Card } from "../../components/UI/Card/Card";
 import "./Work.css";
+import { useRevealOnScroll } from "../../useRevealOnScroll";
 
 export const Work: React.FC = () => {
+  useRevealOnScroll();
+
   return (
     <section className="work-section" id="work">
       <h2 className="work-title">My Work</h2>
@@ -38,7 +40,7 @@ export const Work: React.FC = () => {
           description="A full Rails application for managing universities, departments, programs, and instructors, featuring ActiveRecord relationships, search, pagination, Mapbox maps, and a seeded dataset of 200+ records."
           image="/icons/ruby-on-rails-1.png"
           tech={["Ruby on Rails", "SQLite3", "Bootstrap", "Mapbox", "HTML5"]}
-          link="https://github.com/MKG-RRC/Intro-to-Rails-Project-for-Agile-Full-Stack-.git"
+          link="https://unicatalog.onrender.com"
         />
       </div>
     </section>
