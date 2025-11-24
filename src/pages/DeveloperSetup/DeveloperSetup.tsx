@@ -1,4 +1,5 @@
 import React from "react";
+
 import "./Developer.css";
 import { Typography } from "../../components/UI/Typography/Typography";
 import { useRevealOnScroll } from "../../useRevealOnScroll";

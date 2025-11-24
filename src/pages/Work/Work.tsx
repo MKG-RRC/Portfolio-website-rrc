@@ -1,4 +1,5 @@
 import React from "react";
+
 import { Card } from "../../components/UI/Card/Card";
 import "./Work.css";
 import { useRevealOnScroll } from "../../useRevealOnScroll";

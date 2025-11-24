@@ -1,4 +1,5 @@
 import React from "react";
+
 import { Navbar } from "../../components/Navbar/Navbar";
 import "./Home.css";
 import { Button } from "../../components/UI/Button/Button";
