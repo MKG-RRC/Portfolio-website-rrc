@@ -64,7 +64,9 @@ export const ContactForm: React.FC = () => {
           />
         </div>
 
-        <Button label="Send Message" variant="primary" />
+        <Button variant="primary" type="submit">
+          Send Message
+        </Button>
       </form>
     </div>
   );

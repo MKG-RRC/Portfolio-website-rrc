@@ -3,23 +3,22 @@ import "./Contact.css";
 
 import { ContactForm } from "../../components/UI/ContactForm/ContactForm";
 import { Typography } from "../../components/UI/Typography/Typography";
+import { useRevealOnScroll } from "../../useRevealOnScroll";
 
 export const Contact = () => {
+  useRevealOnScroll();
+
   return (
-    <div className="contact-page">
+    <section className="contact-section reveal" id="contact">
       <div className="contact-wrapper">
         {/* LEFT: Contact Form */}
-        <div className="contact-form-section">
+        <div className="contact-left">
           <ContactForm />
         </div>
 
         {/* RIGHT: Social Profiles */}
-        <div className="contact-social-section">
+        <div className="contact-right">
           <Typography variant="h2">Connect With Me</Typography>
-
-          <Typography variant="p">
-            You can also reach me through my professional profiles:
-          </Typography>
 
           <div className="social-links">
             <a
@@ -29,7 +28,7 @@ export const Contact = () => {
               rel="noopener noreferrer"
             >
               <img src="/icons/linkedin.png" alt="LinkedIn" />
-              <span>LinkedIn Profile</span>
+              <span className="connect-text">LinkedIn Profile</span>
             </a>
 
             <a
@@ -39,11 +38,11 @@ export const Contact = () => {
               rel="noopener noreferrer"
             >
               <img src="/icons/github.png" alt="GitHub" />
-              <span>GitHub Portfolio</span>
+              <span className="connect-text">GitHub Portfolio</span>
             </a>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };

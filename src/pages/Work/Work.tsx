@@ -32,6 +32,14 @@ export const Work: React.FC = () => {
           tech={["GitHub Actions", "CI/CD", "Linting"]}
           link="#"
         />
+
+        <Card
+          title="UniCatalog – University Management System"
+          description="A full Rails application for managing universities, departments, programs, and instructors, featuring ActiveRecord relationships, search, pagination, Mapbox maps, and a seeded dataset of 200+ records."
+          image="/icons/ruby-on-rails-1.png"
+          tech={["Ruby on Rails", "SQLite3", "Bootstrap", "Mapbox", "HTML5"]}
+          link="https://github.com/MKG-RRC/Intro-to-Rails-Project-for-Agile-Full-Stack-.git"
+        />
       </div>
     </section>
   );

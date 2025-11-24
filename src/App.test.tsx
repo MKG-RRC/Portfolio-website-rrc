@@ -1,10 +1,17 @@
-import { render, screen } from "@testing-library/react";
 import React from "react";
+import { render, screen } from "@testing-library/react";
+import "@testing-library/jest-dom";
+import { BrowserRouter } from "react-router-dom";
 
 import App from "./App";
 
-test("renders UI Garden title", () => {
-  render(<App />);
-  const titleElement = screen.getByText(/Demo StoryBook UI Component Library/i);
-  expect(titleElement).toBeInTheDocument();
+test("renders navbar brand text", () => {
+  render(
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>,
+  );
+
+  const brandText = screen.getByText(/MKG Portfolio/i);
+  expect(brandText).toBeInTheDocument();
 });

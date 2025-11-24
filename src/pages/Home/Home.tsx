@@ -2,6 +2,7 @@ import React from "react";
 
 import { Navbar } from "../../components/Navbar/Navbar";
 import "./Home.css";
+import { Button } from "../../components/UI/Button/Button";
 
 export const Home: React.FC = () => {
   return (
@@ -20,9 +21,9 @@ export const Home: React.FC = () => {
             CI/CD
           </p>
 
-          <a href="#work" className="hero-button">
+          <Button href="#work" variant="primary">
             View My Work
-          </a>
+          </Button>
         </div>
       </section>
 

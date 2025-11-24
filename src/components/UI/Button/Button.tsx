@@ -1,34 +1,32 @@
 import React from "react";
 import "./Button.css";
 
-interface ButtonProps {
-  label: string;
-  variant?: "primary" | "secondary" | "outline";
-  href?: string; // 👈 ADD THIS
-  onClick?: () => void; // optional
-}
+export type ButtonProps = {
+  variant?: "primary" | "secondary";
+  children: React.ReactNode;
+  href?: string; // allow links
+  type?: "button" | "submit" | "reset"; // allow form submit
+};
 
 export const Button: React.FC<ButtonProps> = ({
-  label,
   variant = "primary",
+  children,
   href,
-  onClick,
+  type = "button",
 }) => {
-  const className = `ui-button ${variant}`;
-
-  // If an href is provided, render an anchor button
+  // If href exists, render <a>
   if (href) {
     return (
-      <a className={className} href={href}>
-        {label}
+      <a href={href} className={`ui-btn ${variant}`}>
+        {children}
       </a>
     );
   }
 
-  // Otherwise, render a normal button
+  // Otherwise render a <button>
   return (
-    <button className={className} onClick={onClick}>
-      {label}
+    <button type={type} className={`ui-btn ${variant}`}>
+      {children}
     </button>
   );
 };

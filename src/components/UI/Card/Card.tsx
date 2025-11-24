@@ -7,6 +7,7 @@ interface CardProps {
   description: string;
   tech?: string[];
   link?: string;
+  buttonLabel?: string; // ✅ NEW prop for dynamic button text
 }
 
 export const Card: React.FC<CardProps> = ({
@@ -15,6 +16,7 @@ export const Card: React.FC<CardProps> = ({
   description,
   tech = [],
   link,
+  buttonLabel,
 }) => {
   return (
     <div className="ui-card">
@@ -41,7 +43,8 @@ export const Card: React.FC<CardProps> = ({
             target="_blank"
             rel="noreferrer"
           >
-            View Project →
+            {/* ✅ dynamic button label with fallback */}
+            {buttonLabel ?? "View Project →"}
           </a>
         )}
       </div>
