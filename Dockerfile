@@ -12,6 +12,7 @@ RUN npm install
 
 # Copy the rest of the project
 COPY . .
+ENV DISABLE_ESLINT_PLUGIN=true
 
 # Build the production version of CRA
 RUN npm run build
@@ -31,3 +32,7 @@ EXPOSE 80
 
 # Run Nginx
 CMD ["nginx", "-g", "daemon off;"]
+
+
+# docker build -t garcia_mark_coding_assignment14 .
+# docker run --name garcia_mark_coding_assignment14 -p 5575:80 garcia_mark_coding_assignment14

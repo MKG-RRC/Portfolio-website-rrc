@@ -32,8 +32,9 @@ export const ContactForm: React.FC = () => {
 
       <form className="contact-form" onSubmit={handleSubmit}>
         <div className="form-group">
-          <label>Name</label>
+          <label htmlFor="name">Name</label>
           <input
+            id="name"
             name="name"
             placeholder="Your name"
             value={form.name}
@@ -43,8 +44,9 @@ export const ContactForm: React.FC = () => {
         </div>
 
         <div className="form-group">
-          <label>Email</label>
+          <label htmlFor="email">Email</label>
           <input
+            id="email"
             name="email"
             placeholder="you@example.com"
             value={form.email}
@@ -54,8 +56,9 @@ export const ContactForm: React.FC = () => {
         </div>
 
         <div className="form-group">
-          <label>Message</label>
+          <label htmlFor="message">Message</label>
           <textarea
+            id="message"
             name="message"
             placeholder="Your message..."
             value={form.message}
